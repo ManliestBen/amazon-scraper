@@ -14,7 +14,7 @@ let scrape = async () => {
         return {
             title,
             price,
-            // description
+            // description 
         }
     })
 
