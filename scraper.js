@@ -1,13 +1,13 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer');  // Require puppeteer 
 
 let scrape = async () => {
-    const browser = await puppeteer.launch({headless: true});
+    const browser = await puppeteer.launch({headless: true});  // Set to headless mode to prevent browser from opening, saving system resources
     const page = await browser.newPage();
-    await page.goto('https://www.amazon.com/b/ref=usbk_surl_books/?node=283155');
-    await page.click('#acs-product-block-0 > div.a-section.a-spacing-mini.a-spacing-top-micro.acs-product-block__product-image > a > img')
+    await page.goto('https://www.amazon.com/b/ref=usbk_surl_books/?node=283155');  // Main book section in Amazon site
+    await page.click('#acs-product-block-0 > div.a-section.a-spacing-mini.a-spacing-top-micro.acs-product-block__product-image > a > img')  // Navigates to first image within the section selected
     await page.waitFor(1000);
 
-    const result = await page.evaluate(() => {
+    const result = await page.evaluate(() => {   // Selects which sections on the page are necessary for saving relevant data, then saves them to variables
         let title = document.querySelector('#productTitle').innerText;
         let price = document.querySelector('.offer-price').innerText;
         let description = document.querySelector('#productDescription > div:nth-child(2) > div.a-expander-content.a-expander-partial-collapse-content > p').innerText;
