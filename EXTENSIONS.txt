@@ -1,0 +1,9 @@
+I chose to solve the problem by using Puppeteer, which I had not previously used.  I played around with it for a few days before attempting to apply what I'd learned to solving the required challenge.  As you can see from my code, I was able to sucessfully pull the required data for the first book listed, but was unable to replicate this for additional books.  
+
+I changed the #acs-product-block-# manually, successfully retrieving the correct data, but not consistently.  The program only successfully executed a handful of times.  I believe this may have been due Amazon blocking my requests, but having no experience with puppeteer and web scrapers, I am not sure of the exact reason for the error.  My initial plan was to loop through the page clicks, using 0-9 in place of the # in #acs-product-block-# and adding the relevant data to a data object, but was unable to do so because of the errors I kept receiving.  
+
+
+
+In order to apply this to a site beyond Amazon.com, I would simply need to inspect the site in question, look at the HTML structure, and determine which elements to search for in order to retrieve the necessary data.
+
+The same would be true for products other than books.  By examining the HTML, one would be able to iterate through other products, retrieving data by looking for patterns in the HTML to iterate through using a scraper.
