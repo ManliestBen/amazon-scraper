@@ -8,13 +8,19 @@ let scrape = async () => {
     await page.waitFor(1000);
 
     const result = await page.evaluate(() => {
-        let title = document.querySelector('.a-size-large').innerText;
+        let title = document.querySelector('#productTitle').innerText;
         let price = document.querySelector('.offer-price').innerText;
-        // let description = document.querySelector('div#descriptionAndDetails').;
+        let description = document.querySelector('#productDescription > div:nth-child(2) > div.a-expander-content.a-expander-partial-collapse-content > p').innerText;
+        let dimensions = document.querySelector('#productDetailsTable > tbody > tr > td > div > ul > li:nth-child(6)').innerText;
+        let imageURL = document.querySelector('.imageThumb').innerHTML;
+        let weight = document.querySelector('#productDetailsTable > tbody > tr > td > div > ul > li:nth-child(7)').innerText;
         return {
             title,
             price,
-            // description 
+            description,
+            dimensions,
+            imageURL,
+            weight
         }
     })
 
